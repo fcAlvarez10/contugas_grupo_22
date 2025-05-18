@@ -12,7 +12,10 @@ contugas_grupo_22/
 │   ├── app.py                 # Aplicación principal Flask
 │   ├── requirements.txt       # Dependencias de la aplicación web
 │   ├── templates/            # Plantillas HTML
-│   ├── static/              # Archivos estáticos (CSS, JS)
+│   ├── static/              # Archivos estáticos (CSS, JS, imágenes)
+│   │   ├── css/           # Hojas de estilo
+│   │   ├── js/           # Scripts de JavaScript
+│   │   └── images/       # Imágenes (incluyendo logo.png)
 │   ├── model/              # Modelo entrenado
 │   ├── Dockerfile          # Configuración de Docker
 │   └── docker-compose.yml  # Configuración de Docker Compose
@@ -35,6 +38,15 @@ contugas_grupo_22/
 │
 └── README.md                  # Este archivo
 ```
+
+## Características Principales
+
+- Interfaz web intuitiva con el logo oficial de Contugas
+- Detección de anomalías en tiempo real
+- Soporte para múltiples clientes
+- Visualización clara de resultados
+- Implementación en Docker para fácil despliegue
+- Documentación completa y mantenible
 
 ## Instalación de la Aplicación Web
 
@@ -145,6 +157,20 @@ Esta es la forma más sencilla y recomendada de ejecutar la aplicación, ya que 
 3. Haz clic en "Enviar" para procesar los datos
 
 4. La aplicación mostrará si se detectó una anomalía o si los valores son normales
+
+## Interfaz y Personalización
+
+La aplicación cuenta con una interfaz personalizada que incluye:
+
+1. Logo oficial de Contugas en la parte superior de la página
+2. Esquema de colores corporativo
+3. Diseño responsivo para diferentes dispositivos
+4. Navegación intuitiva y amigable
+
+Para modificar elementos visuales:
+- El logo se encuentra en `web_app/static/images/logo.png`
+- Los estilos CSS están en `web_app/static/css/`
+- Las plantillas HTML en `web_app/templates/`
 
 ## Solución de Problemas
 
