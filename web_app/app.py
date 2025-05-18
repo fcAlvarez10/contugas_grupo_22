@@ -62,22 +62,28 @@ def preprocess_features(df):
     return df
 
 class AnomalyDetectionForm(FlaskForm):
-    datetime = DateTimeLocalField('Fecha-Hora', 
+    datetime = DateTimeLocalField('Fecha-Hora',
                                 format='%Y-%m-%dT%H:%M',
-                                validators=[DataRequired()])
+                                validators=[DataRequired()],
+                                default=datetime.now)
     
     cliente = SelectField('Cliente',
                          choices=[f'CLIENTE{i}' for i in range(1, 21)],
                          validators=[DataRequired()])
     
-    volumen = FloatField('Volumen',
-                        validators=[DataRequired(), NumberRange(min=0)])
+    volumen = FloatField('Volumen (m³)',
+                        validators=[DataRequired(), 
+                                  NumberRange(min=0, message="El volumen debe ser mayor a 0")],
+                        render_kw={"placeholder": "Ejemplo: 150.5", "step": "0.1"})
     
-    presion = FloatField('Presión',
-                        validators=[DataRequired(), NumberRange(min=0)])
+    presion = FloatField('Presión (bar)',
+                        validators=[DataRequired(), 
+                                  NumberRange(min=0, message="La presión debe ser mayor a 0")],
+                        render_kw={"placeholder": "Ejemplo: 5.5", "step": "0.1"})
     
-    temperatura = FloatField('Temperatura',
-                           validators=[DataRequired()])
+    temperatura = FloatField('Temperatura (°C)',
+                           validators=[DataRequired()],
+                           render_kw={"placeholder": "Ejemplo: 25.5", "step": "0.1"})
 
 @app.route('/', methods=['GET', 'POST'])
 def index():

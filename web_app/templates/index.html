@@ -21,6 +21,26 @@
             background-color: #0d6efd;
             color: white;
             border-radius: 15px 15px 0 0 !important;
+            padding: 2rem;
+        }
+        .header-content {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+        .logo-container {
+            flex-shrink: 0;
+        }
+        .logo-container img {
+            height: 80px;
+            width: auto;
+        }
+        .title-container {
+            flex-grow: 1;
+        }
+        .title-container h3 {
+            margin: 0;
+            font-size: 2rem;
         }
         .btn-primary {
             width: 100%;
@@ -35,15 +55,60 @@
             color: #dc3545;
             font-weight: bold;
         }
+        .guide-section {
+            background-color: #e9ecef;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-bottom: 1.5rem;
+        }
+        .guide-section h4 {
+            color: #0d6efd;
+            margin-bottom: 1rem;
+        }
+        .guide-section ol {
+            margin-bottom: 0;
+        }
+        .guide-section li {
+            margin-bottom: 0.5rem;
+        }
+        .input-help {
+            font-size: 0.875rem;
+            color: #6c757d;
+            margin-top: 0.25rem;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="card">
             <div class="card-header">
-                <h3 class="mb-0">Detector de Anomalías</h3>
+                <div class="header-content">
+                    <div class="logo-container">
+                        <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo Contugas">
+                    </div>
+                    <div class="title-container">
+                        <h3>Detector de Anomalías</h3>
+                    </div>
+                </div>
             </div>
             <div class="card-body">
+                <div class="guide-section">
+                    <h4>Guía de Uso</h4>
+                    <ol>
+                        <li>La fecha y hora se establecen automáticamente al momento actual, pero puedes modificarlas si necesitas analizar datos históricos.</li>
+                        <li>Selecciona el cliente de la lista desplegable.</li>
+                        <li>Ingresa los valores de medición con al menos un decimal:
+                            <ul>
+                                <li>Volumen en metros cúbicos (m³)</li>
+                                <li>Presión en bares (bar)</li>
+                                <li>Temperatura en grados Celsius (°C)</li>
+                            </ul>
+                        </li>
+                        <li>Haz clic en "Analizar Registro" para obtener el resultado.</li>
+                        <li>El sistema te indicará si el registro es normal o si se detecta una anomalía.</li>
+                    </ol>
+                </div>
+
                 <form method="POST">
                     {{ form.csrf_token }}
                     <div class="row g-3">
@@ -63,18 +128,21 @@
                             <div class="form-group">
                                 {{ form.volumen.label(class="form-label") }}
                                 {{ form.volumen(class="form-control") }}
+                                <div class="input-help">Ingrese el valor con al menos un decimal (ej: 150.5)</div>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
                                 {{ form.presion.label(class="form-label") }}
                                 {{ form.presion(class="form-control") }}
+                                <div class="input-help">Ingrese el valor con al menos un decimal (ej: 5.5)</div>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
                                 {{ form.temperatura.label(class="form-label") }}
                                 {{ form.temperatura(class="form-control") }}
+                                <div class="input-help">Ingrese el valor con al menos un decimal (ej: 25.5)</div>
                             </div>
                         </div>
                         <div class="col-12 mt-4">
