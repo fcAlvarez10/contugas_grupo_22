@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  anomaly_detector:
+    build: .
+    ports:
+      - "5000:5000"
+    environment:
+      - FLASK_APP=app.py
+      - FLASK_ENV=development
+    volumes:
+      - ./model:/app/model
+    command: python app.py --host=0.0.0.0 
