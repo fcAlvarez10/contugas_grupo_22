@@ -1,8 +1,10 @@
 # Detector de Anomalías - Contugas
 
-Este repositorio contiene dos componentes principales:
+Este repositorio contiene los siguientes componentes principales:
 1. Una aplicación web para detectar anomalías en tiempo real
 2. El código de entrenamiento del modelo de detección de anomalías
+3. Documentación técnica y académica del proyecto
+4. Notebooks de investigación y análisis
 
 ## Estructura del Proyecto
 
@@ -13,9 +15,6 @@ contugas_grupo_22/
 │   ├── requirements.txt       # Dependencias de la aplicación web
 │   ├── templates/            # Plantillas HTML
 │   ├── static/              # Archivos estáticos (CSS, JS, imágenes)
-│   │   ├── css/           # Hojas de estilo
-│   │   ├── js/           # Scripts de JavaScript
-│   │   └── images/       # Imágenes (incluyendo logo.png)
 │   ├── model/              # Modelo entrenado
 │   ├── Dockerfile          # Configuración de Docker
 │   └── docker-compose.yml  # Configuración de Docker Compose
@@ -24,17 +23,18 @@ contugas_grupo_22/
 │   ├── requirements.txt      # Dependencias para entrenamiento
 │   ├── notebooks/           # Jupyter notebooks para EDA
 │   ├── src/                # Módulos Python
-│   │   ├── features.py    # Procesamiento de características
-│   │   ├── ingestion.py  # Carga de datos
-│   │   ├── labeling.py   # Etiquetado de datos
-│   │   ├── metrics.py    # Métricas de evaluación
-│   │   ├── detectors.py  # Implementación de detectores
-│   │   └── evaluation.py # Evaluación de modelos
 │   ├── data/              # Datos
-│   │   ├── raw/         # Datos sin procesar
-│   │   └── processed/   # Datos procesados
 │   ├── train.py          # Script de entrenamiento
 │   └── evaluate.py       # Script de evaluación
+│
+├── Paper/                    # Investigación y análisis
+│   └── anomaly.ipynb       # Notebook principal de análisis
+│
+├── Documentos/              # Documentación técnica
+│   ├── Paper_Analisis_Contugas.pdf           # Paper del proyecto
+│   ├── Prototipo Fachada.pdf                 # Diseño de la interfaz
+│   ├── Reporte Técnico de Experimentos.pdf   # Documentación técnica
+│   └── Tabla de Requerimientos_diligenciada.pdf # Requisitos del proyecto
 │
 └── README.md                  # Este archivo
 ```
@@ -66,7 +66,7 @@ Esta es la forma más sencilla y recomendada de ejecutar la aplicación, ya que 
 
 1. Clona o descarga este repositorio:
    ```bash
-   git clone <url-del-repositorio>
+   git clone https://github.com/fcAlvarez10/contugas_grupo_22
    cd contugas_grupo_22/web_app
    ```
 
@@ -229,4 +229,3 @@ pip install -r requirements.txt
 Si encuentras algún problema:
 1. Revisa la sección de Solución de Problemas
 2. Verifica los logs de la aplicación
-3. Contacta al equipo de soporte
